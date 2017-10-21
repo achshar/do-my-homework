@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+								    /\       | |       | |
+								   /  \   ___| |__  ___| |__   __ _ _ __
+								  / /\ \ / __| '_ \/ __| '_ \ / _` | '__|
+								 / ____ \ (__| | | \__ \ | | | (_| | |
+								/_/    \_\___|_| |_|___/_| |_|\__,_|_|
+								Welcome to the source, enjoy your stay
+-->
+<html manifest="manifest.appcache">
+	<head>
+		<title>Do My Homework</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<script src="./js/includes.js"></script>
+		<script src="./js/index.js"></script>
+	</head>
+	<body>
+		<header id="header">
+			<div id="name">Do My Homework</div>
+		</header>
+		<nav>
+			<div data-tab="1" class="selected">Home</div>
+			<div data-tab="2">Help</div>
+			<div data-tab="3">Examples</div>
+			<div data-tab="4">About</div>
+		</nav>
+		<div id="content">
+			<section class="tab" id="home">
+				<section id="form">
+					<form>
+						<select name="method">
+							<optgroup label="Iterative methods">
+								<option value="bisection">Bisection</option>
+								<option value="regulaFalsi">Regula Falsi</option>
+								<option value="newtonRaphson">Newton Raphson</option>
+							</optgroup>
+							<optgroup label="Simultaneous Linear Equations">
+								<option value="gaussSeidel">Gauss Seidel</option>
+							</optgroup>
+						</select>
+						<div id="equations">
+							<div>
+								<div class="equation"><input type="text" name="equation1" placeholder="Equation" required></div>
+							</div>
+							<input type="button" value="+" id="addEquation">
+						</div>
+						<input type="text" name="derivative" placeholder="Derivative Equation" class="hide">
+						<input type="number" min="0" max="5" name="precision" placeholder="Precision" class="hide">
+						<input type="number" min="0" max="100" step="0.001" name="initialApproximation" placeholder="Initial Approximation" class="hide">
+						<input type="number" min="0" max="100" step="0.001" name="a" placeholder="a" class="hide">
+						<input type="number" min="0" max="100" step="0.001" name="b" placeholder="b" class="hide">
+						<div id="buttons">
+							<input type="button" value="More" name="more">
+							<input type="submit" value="Calculate">
+						</div>
+					</form>
+				</section>
+				<section id="output">
+					<div id="initialMessage">Add values and click calculate</div>
+				</section>
+			</section>
+			<section class="tab hide" id="help">
+				<h3>Help</h3>
+
+				<p>The app's main page has two sections. The left (grey) pane is where the question details are feeded to the app and it's solution comes at the right (green) pane. The form has a bunch of fields. Some additional information about each field slides in when you place your cursor on each field.</p>
+
+				<p>Depending on the method the form will have a few fields avilable. There are two types of fields for each method, <em>required</em> fields need to be filled for the answer to be calculated while <em>optional</em> fields are not required but your question may provide their value so you have the option to fill them in. The optional fields can seen by clicking "More" button on the form.</p>
+
+				<p>Below is the explanation of each field available in the form. You can more easily understand their purpose by checking out the examples section. If you are on PC then the form itself will popup a small description when you put your cursor in the field.</p>
+
+				<ul>
+					<li><strong>Method:</strong> The method dropdown is where you select the iterative method you want to use to solve your problem. The ultimate answer will be same for most methods but what matters is how you reach that answer. So choose this wisely.</li>
+
+					<li>
+						<strong>Equation:</strong> This is where you add the equation you want to solve. The equation when written here need to be adapted for the app. Following are a few things to keep in mind when you add the equation.
+						<ul>
+							<li>The equations will use the variables <em>x</em>, <em>y</em> and <em>z</em> just like you would in your book. But the operators are the ones used in computer language. The multiply ( x ) will become aiestrek ( * ) and divide ( &divide; ) will become forward slash ( / ).</li>
+							<li>
+								You can use special functions for a whole lot of other stuff.
+								<ul>
+									<li><strong>pow</strong> is used for exponents, for example <code>5 * pow(x, 3) - 2 * pow(y, 2) + z</code> will be equivalant of <code>5x<sup>3</sup> - 2y<sup>2</sup> + z</code> from your book.</li>
+									<li><strong>sqrt</strong> is used for finding the square root, for example <code>5 * sqrt(x) + y</code> will be equivalant of <code>5&radic;x + y</code></li>
+									<li><strong>exp</strong> is used for <emp>e</emp>, for example <code>x * exp(x) - 2 = 0</code> will be equivalent of <code>xe<sup>x</sup> - 2</code></li>
+									<li><strong>log</strong> is used for calculating the logarithm of a number, for example <code>2 * pow(x, 2) - 5 * y + log(z)</code> will be equivalant of <code>2x<sup>2</sup> - 5y + log z</code></li>
+									<li><strong>sin, cos, tan</strong> are used for calculating the respective value of a number, for example <code>2 * pow(x, 2) - 5 * y + sin(z)</code> will be equivalant of <code>2x<sup>2</sup> - 5y + sin z</code></li>
+								</ul>
+							</li>
+							<li>If your problem needs more then one equations (for example in <emp>Gauss Seidel</emp> method you need 3) you can add them by seperating them with a colon ( ; ). For example <code>x = (5 - y - z) / 2; y = (15 - 2 * z - 3 * x) / 5; z = (8 - 2 * x - y) / 4;</code> The last colon is optional</li>
+							<li>The app has (as of now) no good way to know when an equation provided is correct. It will just try to use whatever you have given it and if for some reason it fails, it won't know where the problem is. So the equation needs to be correct and the app won't be much help in making sure it is.</li>
+						</ul>
+					</li>
+					<li><strong>Derivative Equation:</strong> Some methods use the derivative of the provided equation. The app cannot calculate the derivative of the equation for now (I am looking into how to do it) so for now if your method needs a derivative equation, you will need to do it manually and add it in the field. The derivative of <code>2x<sup>2</sup> + 3y + 2</code> for example will be <code>4x + y</code> (I think).</li>
+					<li><strong>Precision:</strong> This is the number of decimal places that need to be matched for each iteration with it's previous iteration's answer. So this field sets the cut-off of the iterations. This is an optional field. The default value of this field is 2.</li>
+					<li><strong>Initial Approximation:</strong> Some methods can have a starting value for the approximate answer. This field is used to set that value. This is an optional field.</li>
+					<li><strong>a / b:</strong> These are the two initial values for variables used to calculate the answer for some methods. These are often used in the same method as Initial Approximation.</li>
+				</ul>
+			</section>
+			<section class="tab hide" id="examples"></section>
+			<section class="tab hide" id="about">
+				<h3>About this app</h3>
+
+				<p>This app will solve your math homework for you. Well since Mathematics is such a vast subject, this app cannot solve every question out there. The app (for now) solves iteration based equations. The app supports a few different methods of solving equations. Head over to the examples tab to see them in action.</p>
+
+				<h3>Browser requiremenets</h3>
+
+				<p>This is a HTML5 web app. So it's best if you are using latest version of your browser. I have tested it on the most recent verion (at the time of this writing) of Chrome, Firefox and IE (11) and the app seems to work fine. If you find any issues, please send <a href="mainto:support@achshar.com">me</a> an email.</p>
+
+				<p>The app is also mobile friendly. The app has been tested on stock Android browser in 2.3.5 but should work in Mobile Chrome, Safari and Firefox. Again, if you find any issues please send <a href="mainto:support@achshar.com">me</a> an email.</p>
+
+				<h3>Offline use</h3>
+
+				<p>The app is completely functional offline. You need to load this page once and the app will be available to you even if you are not connected to the internet. When offline, just load this page as you normally would. No extra step required. This is available on both desktop and mobile. I have tested it on Android 2.3 stock browser but it should work as far back as 2.1.</p>
+
+				<h3>Credits</h3>
+
+				<p>This app is created as a submission to Google Cloud Challange by <a href="http://achshar.com">Achin</a> and <a href="https://www.facebook.com/saurabh.arora.148116">Saurabh</a>. The app is also <a href="http://code.achshar.com/do-my-homework" tatger="_blank">open source</a>, if you want to contribute to this fight against homework feel free to send in a pull request. You can also find us on <a href="https://plus.google.com/102509642210352505702" rel="publisher" target="_blank">Google+</a>
+</p>
+			</section>
+		</div>
+	</body>
+</html>

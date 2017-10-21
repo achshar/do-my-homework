@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# version 18
+
+CACHE:
+
+./index.html
+./css/index.css
+./js/includes.js
+./js/index.js
+./js/examples.json
+
+NETWORK:
+
+*

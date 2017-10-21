@@ -1,0 +1,80 @@
+{"methods": [
+	{
+        "id": "bisection",
+        "name": "Bisection",
+        "questions": [
+        	{
+                "body": "<code>x<sup>3</sup> - x - 11</code>",
+                "equation1": "pow(x, 3) - x - 11"
+            },
+            {
+                "body": "<code>x<sup>3</sup> - 5x - 4</code>",
+                "equation1": "pow(x, 3) - 5 * x - 4"
+            },
+            {
+                "body": "<code>x<sup>3</sup> - 2x - 5</code>",
+                "equation1": "pow(x, 3) - 2 * x - 5"
+          	}
+        ]
+ 	},
+    {
+        "id": "regulaFalsi",
+        "name": "Regula Falsi",
+        "questions": [
+            {
+             	"body": "<code>x<sup>2</sup> - 25</code>",
+              	"equation1": "pow(x, 2) - 25"
+            },
+            {
+               	"body": "<code>x<sup>4</sup> - x - 10</code>",
+               	"equation1": "pow(x, 4) -x -10"
+            },
+            {
+             	"body": "<code>x - e<sup>-x</sup></code>",
+               	"equation1": "x - exp(-x)"
+            }
+        ]
+    },
+    {
+        "id": "newtonRaphson",
+        "name": "Newton Raphson",
+        "questions": [
+           	{
+                "body": "<code>x - &radic;2</code>",
+                "equation1": "x - sqrt(2)",
+                "derivative": "1",
+                "precision": "5"
+            },
+           	{
+                "body": "<code>x<sup>3</sup> - 3x - 5</code>",
+                "equation1": "pow(x,3) - 3 * x - 5",
+                "derivative": "3 * pow(x,2) - 3",
+                "precision": "3",
+                "Initial approximation": "3"
+            },
+            {
+                "body": "<code>x<sup>3</sup> - 2x - 5</code>",
+                "equation1": "pow(x, 3) - 2 * x - 5",
+                "derivative": "3 * pow(x, 2) - 2"
+			}
+        ]
+    },
+    {
+        "id": "gaussSeidel",
+        "name": "Gauss Seidel",
+       	"questions": [
+            {
+            	"body": "2x + y + z = 5; 3x + 5y + 2z = 15; 2x + y + 4z = 8",
+                "equation1": "x = (5 - y - z) / 2",
+                "equation2": "y = (15 - 2 * z - 3 * x) / 5",
+                "equation3": "z = (8 - 2 * x - y) / 4"
+            },
+           	{
+                "body": "10x + y + z = 12; 2x + 10y + z = 13; 2x + 2y + 10z = 14",
+                "equation1": "x = (12 - y - z) / 10",
+                "equation2": "y = (13 - 2 * x - z) / 10",
+                "equation3": "z = (14 - 2 * x - 2 * y) / 10"
+           	}
+    	]
+   	}
+]}

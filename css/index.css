@@ -1,0 +1,357 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	margin: 0px 5px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: default;
+	position: relative;
+}
+.hide {
+	display: none !important;
+}
+
+header {
+	margin: 0px 5px;
+	border-bottom: 1px solid #999;
+	height: 70px;
+	transition: height 200ms;
+}
+header #name {
+	font-size: 20px;
+	line-height: 70px;
+	transition: font-size 200ms, line-height 200ms;
+}
+
+nav {
+	font-size: 12px;
+	width: 400px;
+	margin-right: 15px;
+	position: absolute;
+	right: 0px;
+	top: 45px;
+	overflow: hidden;
+}
+nav div {
+	width: 25%;
+	float: left;
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	border: solid #999;
+	border-width: 1px 0px 1px 1px;
+	padding: 4px 0px;
+	background-color: #fff;
+	transition: background-color 200ms;
+}
+nav div:last-child {
+	border-right-width: 1px;
+}
+nav div.selected {
+	border-bottom-color: #fff;
+}
+nav div:hover {
+	background-color: #eef;
+}
+nav div:active {
+	background-color: #ddf;
+}
+
+#content {
+	margin: 10px 5px;
+}
+section.tab {
+	transition: opacity 200ms;
+	opacity: 1;
+}
+section.tab.hidden {
+	opacity: 0;
+}
+
+#home {
+	display: flex;
+	height: 100%
+}
+#home section {
+	flex-basis: 100%;
+	overflow-y: auto;
+}
+#form {
+	background-color: #eef;
+	border: 1px solid #999;
+	padding: 5px 5px;
+	margin-right: 5px;
+}
+#form input[type=button], #form input[type=submit] {
+	transition: background-color 200ms;
+	background-color: #fff;
+}
+#form input[type=button]:hover, #form input[type=submit]:hover {
+	background-color: #ddd;
+}
+#form input[type=button]:active, #form input[type=submit]:active {
+	background-color: #ccc;
+}
+#form input:disabled, #form input:disabled:hover, #form input:disabled:active {
+	background-color: #eee;
+}
+#form form {
+	display: flex;
+	flex-direction: column;
+}
+#form form input, #form form select {
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #999;
+}
+#form input.blinking {
+	background-color: #FC8;
+	transition: background-color 200ms;
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-name: blinkingInput;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	animation-duration: 500ms;
+	animation-name: blinkingInput;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@-webkit-keyframes blinkingInput {
+	from {
+		background-color: #fff;
+	}
+
+	to {
+		background-color: #FC8;
+	}
+}
+@keyframes blinkingInput {
+	from {
+		background-color: #fff;
+	}
+
+	to {
+		background-color: #FC8;
+	}
+}
+
+#form #equations {
+	display: flex;
+	margin: 0px 5px;
+}
+#form #equations > * {
+	flex-basis: 100%;
+	text-align: center;
+}
+#form #equations #addEquation {
+	margin: 5px 0px 5px 10px;
+	max-width: 30px;
+}
+#form .equation {
+	position: relative;
+}
+#form .equation input {
+	width: 100%;
+	margin: 5px 0px;
+}
+#form .equation span {
+	position: absolute;
+	right: 3px;
+	top: 8px;
+	background-color: #f99;
+	transition: background-color 200ms;
+	padding: 0px 8px;
+	display: inline-block;
+	line-height: 20px;
+	padding-bottom: 1px;
+}
+#form .equation span:hover {
+	cursor: pointer;
+	background-color: #f77;
+}
+#form .equation span:active {
+	background-color: #f66;
+}
+#form #buttons {
+	display: flex;
+}
+#form #buttons > input {
+	flex-basis: 100%;
+	margin: 5px;
+}
+
+#output {
+	background-color: #CFC;
+	border: 1px solid #999;
+	padding: 10px 10px 10px;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	user-select: text;
+	cursor: auto;
+	margin-left: 5px;
+}
+#output h3 {
+	margin-bottom: 0px;
+	padding-top: 10px;
+	border-top: 1px solid #999;
+}
+#output h3:first-child, #output h4:first-child {
+	margin-top: 0px;
+	padding-top: 0px;
+	border: 0px;
+}
+#output div {
+	margin: 15px 0px 5px;
+}
+#output code {
+	margin: 0px 0px 5px 10px;
+	display: block;
+}
+#initialMessage {
+	text-align: center;
+	color: #999;
+	margin: 0px !important;
+}
+
+#help, #examples, #about {
+	border: 1px solid #999;
+	padding: 10px;
+	line-height: 25px;
+}
+
+#help code {
+	background-color: #ddf;
+	padding: 3px 10px;
+	border: 1px solid #999;
+	white-space: nowrap;
+}
+#help li {
+	padding: 5px 0px;
+}
+
+#examples .method {
+	border: solid #999;
+	border-width: 0px 1px;
+}
+#examples .method:first-child {
+	border-top: 1px solid #999;
+}
+#examples .method > .name {
+	border-bottom: 1px solid #999;
+	padding: 2px 10px;
+	background-color: #eef;
+	transition: background-color 200ms;
+}
+#examples .method > .name:hover {
+	background-color: #ddf;
+}
+#examples .method.open > .name {
+	background-color: #ddf;
+}
+#examples .method .NA {
+	font-size: 12px;
+	color: #999;
+	padding: 2px 10px;
+	display: none;
+	border-bottom: 1px solid #999;
+}
+#examples .question {
+	border-bottom: 1px solid #999;
+	display: none;
+}
+#examples .method.open .question, #examples .method.open .NA {
+	display: block;
+}
+#examples .question .body {
+	padding: 20px 20px 10px;
+}
+#examples .question .elements {
+	overflow: hidden;
+	padding: 10px 0px 0px 10px;
+}
+#examples .element .name {
+	float: left;
+	width: 25%;
+	max-width: 500px;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	clear: left;
+}
+#examples .element .value {
+	float: left;
+	clear: right;
+}
+#examples .question .checkThisOut {
+	background-color: #dfd;
+	clear: both;
+	padding: 5px 10px;
+	text-align: center;
+	margin-top: 10px;
+	transition: background-color 200ms;
+}
+#examples .question .checkThisOut:hover {
+	background-color: #cfc;
+	cursor: pointer;
+}
+
+/* Change the colums to rows for devices with small screen width */
+@media (max-width: 1000px) {
+	header {
+		height: 50px;
+		margin: 0px 5px;
+	}
+	header #name {
+		font-size: 16px;
+		line-height: 50px;
+	}
+	nav {
+		position: static;
+		width: auto;
+		margin: 10px 5px 0px;
+	}
+	nav .selected {
+		border-bottom-color: #999 !important;
+		background-color: #ddf;
+	}
+	#home, #form form, #form #buttons, #form #equations {
+		display: block;
+	}
+
+	#form {
+		margin: 0px;
+	}
+	#form form {
+		padding-right: 10px;
+	}
+	#form form > input, #form form > select, #form #buttons > input {
+		width: 100%;
+	}
+	#form #equations {
+		width: 100%;
+	}
+	#form #equations #addEquation {
+		max-width: 100% !important;
+		width: 100%;
+		margin: 5px 0px;
+	}
+	#output {
+		margin: 10px 0px 0px 0px;
+	}
+
+	#help ul {
+		padding-left: 15px;
+	}
+	#help code {
+		white-space: normal;
+	}
+}
